@@ -1,4 +1,4 @@
-# Knowledge Optimized Pre-training
+# Improving factual knowledge in PLM weighted MLM
 
 This repository contains the pre-training code for a knowledge enhanced language model. 
 
@@ -6,8 +6,8 @@ This repository contains the pre-training code for a knowledge enhanced language
 
 Clone the repository
 ```
-git clone https://github.intuit.com/data-mlplatform/kelm.git
-cd kelm
+git clone https://github.com/intuit/wMLM.git
+cd wMLM
 ```
 
 Install the required libraries using pip within your virtual environment
