@@ -1,6 +1,6 @@
-# Improving factual knowledge in PLM weighted MLM
+# Improving factual knowledge in Language Models
 
-This repository contains the pre-training code for a knowledge enhanced language model. 
+This repository contains the pre-training code for the EACL 2023 paper "Unsupervised Improvement of Factual Knowledge in Language Models". 
 
 ## Installation
 
