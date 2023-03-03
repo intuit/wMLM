@@ -3,17 +3,20 @@ from transformers import BertTokenizerFast
 from transformers import RobertaConfig
 from transformers import RobertaForMaskedLM
 from transformers import Trainer, TrainingArguments
-from dataset import Dataset
+from custom_dataset import Dataset
 from custom_trainer import BaselineTrainer, WeightedLossTrainer
 from transformers import TrainingArguments
 import argparse
 
 
 def train_lm_fn():
-    parser = argparse.ArgumentParser(description="RoBERTa training")
+    parser = argparse.ArgumentParser(description="Knowledge Enhanced BERT training")
     parser.add_argument("--local_rank", type=int, default=-1)
     parser.add_argument(
         "--loss_type", type=str, default="weighted", choices=["regular", "weighted"]
+    )
+    parser.add_argument(
+        "--mask_type", type=str, default="inform_mask",choices=["random_mask", "inform_mask"]
     )
     args = parser.parse_args()
 
@@ -24,7 +27,7 @@ def train_lm_fn():
 
     tokenizer = BertTokenizerFast.from_pretrained("knowledge_weighted")
 
-    train_data = Dataset("wikipedia", doc_len=document_length)
+    train_data = Dataset("wikipedia",doc_len=document_length,masking_type=args.mask_type)
 
     config = RobertaConfig(
         vocab_size=100000,
@@ -42,7 +45,7 @@ def train_lm_fn():
     training_args = TrainingArguments(
         output_dir=model_path,
         overwrite_output_dir=True,
-        num_train_epochs=3,
+        num_train_epochs=10,
         per_device_train_batch_size=batch_size,
         save_strategy="epoch",
         # save_steps=10000,
@@ -64,7 +67,8 @@ def train_lm_fn():
             args=training_args,
             train_dataset=train_data,
         )
-    trainer.train(resume_from_checkpoint=True)
+    trainer.train()
+    #trainer.train(resume_from_checkpoint=True)
 
 
 if __name__ == "__main__":

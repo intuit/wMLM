@@ -13,7 +13,7 @@ cd wMLM
 Install the required libraries using pip within your virtual environment
 
 ```
-pip install numpy scipy scikit-learn tqdm datasets torch transformers tensorboard nltk matplotlib
+pip install numpy scipy scikit-learn tqdm datasets torch transformers tensorboard nltk matplotlib Cython
 ```
 
 Build cython script

@@ -52,7 +52,7 @@ class WeightedLossTrainer(Trainer):
 
         super().__init__(**kwargs)
 
-        with open("vocab/word_to_value_normalized.json", "r") as file:
+        with open("vocab/loss_weight_normalized.json", "r") as file:
 
             self.vocab_weight = json.load(file)
 

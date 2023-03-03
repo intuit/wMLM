@@ -1,0 +1,12 @@
+.ipynb_checkpoints/
+__pycache__/
+build/
+knowledge_weighted/
+matrix/
+models/
+ngram_calc.c
+ngram_calc.cpython-310-x86_64-linux-gnu.so
+vocab/
+wikipedia
+dataset_cache
+

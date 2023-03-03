@@ -28,15 +28,8 @@ def get_data(datasetname):
                 text_data = []
                 file_count += 1
 
-    # file_name=str(file_count).zfill(4)
-
-    # with open(f"wikipedia/text_{file_name}.txt",'w',encoding='utf-8') as file:
-
-    #     file.write('\n'.join(text_data))
-
-
 if __name__ == "__main__":
-    output_dir = "../kelm/dataset_cache"
+    output_dir = "./dataset_cache"
     datasetname = "wikipedia"
     os.makedirs(output_dir, exist_ok=True)
     get_data(datasetname)
